@@ -1,0 +1,1 @@
+# 209240122_Vika-amalia_e-commerce_UAS
