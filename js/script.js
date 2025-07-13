@@ -41,15 +41,6 @@ function loadFileData(filename) {
     return gk_fileData[filename] || "";
 }
 
-// Untuk membuat menu-toggle
-const menuToggle = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
-
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
-
-
     // ambil data keranjang dari local storage saat halaman dimuat
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 // update tampilan keranjang
