@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMALIA FASHION</title>
+    <link rel="stylesheet" href="css/style.css"><!-- untuk menyambungkan ke css-->
+    </head>
+    <body>
+  <header> <!--menu navigasi-->
+        <h1>AMALIA FASHION</h1>
+        <div class="menu-toggle" id="menu-toggle">☰</div> <!-- untuk mobile toggle -->
+        <nav id="nav-menu">
+            <a href="#" onclick="showSection('beranda')">Beranda</a>
+            <a href="#" onclick="showSection('products')">Produk</a>
+            <a href="#" onclick="showSection('about')">Tentang</a>
+            <a href="#" onclick="showSection('contact')">Kontak</a>
+            <a href="#" onclick="showSection('cart-section')">Keranjang <span id="cart-count">0</span>
+          </a>
+        </nav>
+    </header>
+
+    <!-- Section Beranda -->
+<section id="beranda" class="beranda section active">
+  <div class="hero">
+    <img src="images/logo brend.jpg"  alt="hero-img">
+    <h1>Selamat Datang di toko fashion Kami</h1>
+    <p>Kami menyediakan produk gamis dan sepatu yang berkualitas untuk kebutuhan Anda cocok untuk dipakai seharian.</p>
+  </div>
+</section>
+
+<section id="products" class="products section">
+  <h1>Daftar Produk</h1>
+    <div class="products">
+        <div class="product-card" data-id="1">
+            <img src="images/produk 1.jpg" alt="Produk 1">
+            <h3 class="product-name">Amara Dress</h3>
+            <p class="product-price">Rp 200.000</p>
+            <button onclick="toggleDetail(this)">Lihat Detail</button>
+        <div class="product-detail hidden">
+            <p><strong>Deskripsi :</strong><br>
+              Tampil angggun dan syar'i dengan amara dress,gamis modern yang dirancang untuk kamu yang ingin tampil stayls dan sopan.dibuat dengan bahan premium polyester yang flowy,ringan,dan tidak menerawang
+            </p>
+              <p><strong>Detail produk :</strong><br>
+              bahan : premium poyster,tidak nerawang dan adem<br>
+              model : potongan A-line,flowy dan longgar<br>
+              warna : sage green,dusty pink,grave
+            </p>
+            <p><strong>Keunggulan :</strong><br>
+              desain elegan dan modern <br>
+              nyaman dan longgar<br>
+              pilihan warna yang cantik
+              </p>
+            </div>
+            <button onclick="addToCart(1, 'Amara Dress', 200000)">BELI</button>
+        </div>
+
+        <div class="product-card" data-id="2">
+            <img src="images/produk 2.jpg" alt="Produk 2">
+            <h3 class="product-name">Sneakers Wanita</h3>
+            <p class="product-price">Rp 120.000</p>
+            <button onclick="toggleDetail(this)">Lihat Detail</button>
+        <div class="product-detail hidden">
+            <p><strong>Deskripsi :</strong><br>
+              tampilan stylesh dan kekinian dengan sepatu sneakers wanita yang dirancang khusus untuk yang ingin tampil modis tanpa menggorbankan kenyamanan. dengan desain minimalis khas korea, sepatu ini cocok padukan dengan berbagai outfit,mulai dengan kasual hingga semi formal.</p>
+            <p><strong>Detail produk :</strong><br>
+              Model : sneakers,low cut snakers<br>
+              Material :kulit sintetis premium/canvas berkualitas<br>
+              Fitur : ringan, empuk,dan breathable<br>
+              Ukuran : 36,37,38,39 dan 40 <br>
+              Warna : Hitam, putim, cream
+              </p>
+            <p><strong>Keunggulan :</strong><br>
+              Desain kekinian<br>
+              Nyaman dipakai seharian<br>
+              Mudah dipadukan dengan outfit apapun
+              </p>
+            </div>
+            <button onclick="addToCart(2, 'Sneakers Wanita ', 120000)">BELI</button>
+        </div>
+
+        <div class="product-card" data-id="3">
+            <img src="images/produk 3.jpg" alt="Produk 3">
+            <h3 class="product-name">Volt Runner</h3>
+            <p class="product-price">Rp 150.000</p>
+            <button onclick="toggleDetail(this)">Lihat Detail</button>
+        <div class="product-detail hidden">
+            <p><strong>Deskripsi :</strong><br>
+              Tetap aktif dan tampil bersih dengan sepatu sekolah putih model sneakers ini. Dirancang khusus untuk kebutuhan sekolah, sepatu ini menggabungkan kenyamanan, ketahanan, dan gaya kasual yang cocok digunakan setiap hari.
+            </p>
+            <p><strong>Detail produk :</strong><br>
+              Warna: Putih polos (sesuai aturan sekolah)<br>
+              Model: Sneakers sporty dengan tali<br>
+              Ukuran: 36–41 (tersedia berbagai ukuran)<br>
+              Bahan luar: Kanvas / sintetis berkualitas tinggi
+            </p>
+            <p><strong>Keunggulan :</strong><br>
+              Nyaman untuk aktivitas belajar dan olahraga ringan<br>
+              Mudah dibersihkan dan cepat kering<br>
+              Desain simpel, cocok untuk seragam sekolah
+              </p>
+            </div>
+            <button onclick="addToCart(3, 'Volt Runner', 150000)">BELI</button>
+        </div>
+
+        <div class="product-card" data-id="4">
+            <img src="images/produk 4.jpg" alt="Produk 4">
+            <h3 class="product-name">Gamis Kekinian</h3>
+            <p class="product-price">Rp 135.000</p>
+            <button onclick="toggleDetail(this)">Lihat Detail</button>
+        <div class="product-detail hidden">
+            <p><strong>Deskripsi :</strong><br>
+              Bahan premium mossrepe.Tampil anggun dan elegan dengan gamis wanita modern berbahan mosscrepe berkualitas tinggi. Desain simpel dengan potongan A-line yang nyaman dipakai seharian. Cocok untuk acara formal maupun kasual.
+            </p>
+            <p><strong>Detail produk:</strong><br> 
+              Bahan  : Mosscrepe Premium (jatuh, adem, tidak menerawang)<br>
+              Model  : A-line, lengan panjang kancing, busui friendly<br>     
+              Ukuran : S,M,L-XXL<br>
+              Warna  : Hitam, Dusty Pink,abu abu,sage green,navy
+            </p>
+            <p><strong>Keunggulan :</strong><br>
+              Tidak mudah kusut<br>
+              Nyaman dan adem dipakai<br>
+              Cocok untuk segala acara
+              </p>
+            </div>
+            <button onclick="addToCart(4, 'Gamis Kekinian', 135000)">BELI</button> <!--tombol beli-->
+        </div>
+
+        <div class="product-card" data-id="5">
+            <img src="images/produk 5.jpg" alt="Produk 5">
+            <h3 class="product-name">Sepatu Korean</h3>
+            <p class="product-price">Rp 170.000</p>
+            <button onclick="toggleDetail(this)">Lihat Detail</button>
+        <div class="product-detail hidden">
+            <p><strong>Deskripsi :</strong><br>
+              Sepatu trendy dengan desain simpel dan elegan khas korea.cocok untuk kamu yang ingin tampil beda dan stylish di setiap lagkah
+            </p>
+            <p><strong>Detail produk :</strong><br>
+                Model : korean style<br>
+                Bahan : kanvas premium anti-luntur<br>
+                Ukuran : 36-40<br>
+                Warna : hitam putih,putih pink,putih hijau
+            </p>
+            <p><strong>Keunggulan :</strong><br>
+                Desain limited edision </br>
+                Ringan dan nyaman dipakai seharian<br>
+                Cocok untuk gaya casual
+              </p>
+            </div>
+            <button onclick="addToCart(5, 'Sepatu Korean', 170000)">BELI</button>
+        </div>
+
+        <div class="product-card" data-id="6">
+            <img src="images/produk 6.jpg" alt="Produk 6">
+            <h3 class="product-name">Syarique</h3>
+            <p class="product-price">Rp 180.000</p>
+            <button onclick="toggleDetail(this)">Lihat Detail</button>
+
+        <div class="product-detail hidden">
+            <p><strong>Deskripsi Produk:</strong><br>
+            Syarique adalah gamis elegan dengan potongan modern dan detail premium. Untuk acara formal, terbuat dari bahan satin premium dengan aksen renda halus.
+            </p>
+            <p><strong>Detail produk :</strong><br>
+                Bahan: Satin velvet premium<br>
+                Detail: Renda bordir di bagian depan<br>
+                Model: A-line flowy<br>
+                Ukuran: S, M, L, XL-XXXL<br>
+                Warna: Navy, Sage, Coksu
+            </p>
+            <p><strong>Keunggulan:</strong><br>
+                Desain yang kekinian<br>
+                Tidak mudah kusut, ringan dan adem<br>
+                Cocok untuk acara formal, kondangan, dan hari raya
+              </p>
+            </div>
+            <button onclick="addToCart(6, 'Syarique', 180000)">BELI</button>
+        </div>
+
+    </div>
+</section>
+
+<!--tentang kami-->
+<section id="about" class="section">
+    <h2 class="judul-tentang">Tentang Kami</h2>
+      <p class="isi-tentang">Selamat datang di AMALIA FASHION,kami adalah Toko fashion yang menjual produk berkualitas dengan harga terjangkau.toko online yang menyediakan berbagai pilihan baju muslimah yang anggun dan sepatu sekolah berkualitas untuk anak-anak hingga remaja.
+          Kami percaya bahwa penampilan yang baik dimulai dari kenyamanan. Oleh karena itu, kami menghadirkan produk-produk pilihan yang tidak hanya modis dan syar’i, tapi juga nyaman digunakan sehari-hari. Semua baju muslimah yang kami jual dipilih dengan teliti — mulai dari bahan, desain, hingga potongan yang sopan dan elegan.
+          Tak hanya itu, kami juga menyediakan sepatu sekolah yang kuat, ringan, dan siap menemani aktivitas anak sepanjang hari. Tersedia berbagai ukuran dan model, cocok untuk kebutuhan sekolah maupun kegiatan luar ruangan.
+          Dengan sistem belanja online yang mudah, pengiriman cepat, dan pelayanan ramah, kami berkomitmen memberikan pengalaman belanja terbaik untuk Anda dan keluarga.<br>
+          Terima kasih telah berbelanja di AMALIA FASHION. Kepuasan Anda merupakan prioritas kami. </p>
+</section>
+
+<!--form kontak-->
+<section id="contact" class="section">
+  <div class="contact-section">
+    <form class="contact-form">
+        <h2>Hubungi Kami</h2>
+        <div class="form-group">
+        <label for="nama">Nama</label>
+    <input type="text" id="nama" name="nama" required>
+  </div>
+  <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+  </div>
+  <div class="form-group">
+      <label for="pesan">Pesan</label>
+      <textarea id="pesan" name="pesan" required></textarea>
+  </div>
+  <div class="form-submit">
+      <button type="submit">Kirim Pesan</button>
+      </div>
+    </div>
+  </form>
+</section>
+
+<!--umtuk menambahkan kekeranjang-->
+<div class="container">
+  <section id="cart-section" class="cart-section section">
+    <div id="cart-items"></div>
+    <div class="cart-total">
+      Total: <span id="cart-total">Rp 0</span>
+    </div>
+  </section>
+</div>
+
+<!--footer untuk hak cipta dan kontak -->
+    <footer>
+        <h2>Kontak Kami</h2>
+        <p>Email: amaliafashion@gmail.com</p>
+        <p>Instagram: amaliafashion</p>
+        <p>No WhatsApp :082823511828</p>
+        <p>© 2025 Toko amaliafashion. Semua hak dilindungi.</p>
+    </footer>
+<!--untuk menghubungkan ke script-->
+    <script src="js/script.js"></script>
+</body>
+</html>

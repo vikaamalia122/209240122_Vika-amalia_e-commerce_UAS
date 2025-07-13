@@ -1,0 +1,636 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  font-family: 'Times New Roman', Times, serif ;
+}
+ /* header */
+header {
+  background-color: #2570a1;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ /* navigasi */
+nav {
+  display: none; /* akan ditampilkan di JS atau di desktop */
+  flex-direction: column;
+  width: 100%;
+  background-color: #2570a1;
+  padding: 10px 0;
+}
+
+nav a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+/* Saat link aktif diklik */
+nav.active {
+  display: flex;
+}
+ /* untuk link keranjang */
+.cart-link {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-link span {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: #6c96eb;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* untuk beranda */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #070000;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #00040a;
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+ /* untuk membuat kartu produk */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center; /* Pusatkan kartu produk */
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1.2rem;
+  border-radius: 10px;
+  background-color: #98b2e4;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  align-self: start;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/*  gambar produk dalam kartu */
+/* Gambar produk */
+.product-card img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* Nama produk */
+.product-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+/* Harga produk */
+.product-price {
+  color: black;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+/* detail produk */
+.product-detail {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #98b2e4;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Sembunyikan detail secara default */
+.hidden {
+  display: none;
+}
+
+/* Tombol beli */
+.product-card button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: #005fa3;
+}
+
+/* kartu produk dikeranjang */
+.container {
+  margin-top: 40px; 
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+/* Mengatur tampilan judul produk dalam keranjang belanja */
+#cart-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.cart-item {
+  width: 250px; 
+  background: #d3d9e4;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-item h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  color: #00040e;
+}
+/* Mengatur tampilan deskripsi atau detail produk */
+.cart-item p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #0c0b0b;
+}
+/* Container untuk tombol +, - dan input jumlah */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+/* Gaya untuk tombol tambah dan kurang */
+.quantity-controls button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+/* Efek hover untuk tombol */
+.quantity-controls button:hover {
+  background-color:  #005fa3;
+}
+/* Gaya untuk input angka (jumlah item) */
+.quantity-controls input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+  background: #f9fafa;
+  font-size: 14px;
+}
+
+/*tombol untuk menghapus item dari keranjang */
+.cart-item button.remove {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.cart-item button.remove:hover {
+  background-color: #005fa3;
+}
+
+/* Menampilkan total harga belanja */
+.cart-total {
+  text-align: right;
+  padding: 1rem 2rem;          
+  font-size: 1.2rem;           
+  font-weight: bold;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  color: #0a0000;
+}
+
+/* Sembunyikan semua elemen dengan class .section secara default */
+.section {
+  display: none;
+}
+/* Tampilkan hanya elemen .section yang memiliki class tambahan .active */
+.section.active {
+  display: block;
+}
+
+/* judul tentang kami */
+.judul-tentang {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(17, 16, 16);
+  margin-top: 50px;
+  margin-left: auto;
+  margin-left: auto;
+  padding: 10px 20px;
+}
+
+.isi-tentang {
+  color: rgb(20, 19, 19);
+  line-height: 1.8;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+}
+
+/* KONTAK */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+  background-color: #f4f8fc;
+}
+/* formulir kontak pemesanan */
+.contact-form {
+  background: #98b2e4;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 320px;
+}
+
+.contact-form h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #080000;
+  text-align: center;
+}
+/* Mengatur elemen pembungkus form (input + label) */
+.form-group {
+  margin-bottom: 20px;
+}
+/* Gaya untuk label (judul di atas input/textarea) */
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #00030a;
+  font-weight: 600;
+}
+/* Gaya umum untuk input dan textarea */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fdfdfd;
+  transition: border 0.3s;
+}
+/* Saat input atau textarea aktif (diklik) */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #0077cc;
+  outline: none;
+ }
+/* Tambahan khusus untuk textarea */
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+/* Container untuk tombol submit */
+.form-submit {
+  text-align: center;
+}
+/* Tombol submit yang ada di dalam form */
+.form-submit button {
+  background-color: #0077cc;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-submit button:hover {
+  background-color: #005fa3;
+}
+
+ /* kontak dan hak cipta */
+footer {
+  background-color: #124b70;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 1rem;
+}
+
+ /* agar responsif dimobile */
+ @media (max-width: 480px) {
+  /* Header dan navigasi */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav a,
+  .cart-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .cart-link span {
+    top: -6px;
+    right: 10px;
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 40px 16px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-img {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 16px;
+  }
+
+  .product-card {
+    max-width: 90%; /* Supaya tidak terlalu lebar di layar kecil */
+  }
+
+  /* Keranjang */
+  #cart-items {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 0 10px;
+  }
+
+  .cart-item {
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+  }
+
+  .quantity-controls {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .quantity-controls input {
+    width: 40px;
+    font-size: 14px;
+  }
+
+  .cart-total {
+    font-size: 1rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .contact-form {
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .contact-form h2 {
+    font-size: 18px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  /* Tentang Kami */
+  .judul-tentang {
+    font-size: 1.4rem;
+    padding: 8px 12px;
+    text-align: center;
+  }
+
+  .isi-tentang {
+    font-size: 1rem;
+    padding: 8px 12px;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 1rem;
+    padding: 1rem;
+    text-align: center;
+  }
+}
+/* agar responsip di tablet dan desktop */
+@media (min-width: 768px) {
+  /* Header dan navigasi */
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+    width: auto;
+  }
+
+  nav a,
+  .cart-link {
+    margin: 0;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Hero section */
+  .hero {
+    padding: 100px 60px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    padding: 2rem 3rem;
+    gap: 24px;
+  }
+
+  .product-card {
+    max-width: 320px;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+  }
+
+  /* Kontak */
+  .contact-section {
+    padding: 60px 40px;
+    justify-content: center;
+  }
+
+  .contact-form {
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-form h2 {
+    font-size: 28px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 17px;
+  }
+
+  /* Keranjang */
+  #cart-items {
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .cart-item {
+    width: 280px;
+    flex: 0 0 auto;
+  }
+
+  /* Tentang Kami */
+  .judul-tentang {
+    font-size: 2rem;
+    margin-top: 80px;
+    text-align: center;
+  }
+
+  .isi-tentang {
+    font-size: 1.2rem;
+    padding: 20px 60px;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 1.3rem;
+    padding: 2rem;
+  }
+}
