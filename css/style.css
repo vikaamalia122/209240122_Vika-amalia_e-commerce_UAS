@@ -6,7 +6,7 @@
 }
  /* header */
 header {
-  background-color: #2570a1;
+  background-color: #0077cc;
   color: white;
   padding: 1rem;
   display: flex;
@@ -20,7 +20,7 @@ nav {
   display: none; /* akan ditampilkan di JS atau di desktop */
   flex-direction: column;
   width: 100%;
-  background-color: #2570a1;
+  background-color: #0077cc;
   padding: 10px 0;
 }
 
@@ -188,7 +188,7 @@ nav.active {
 
 .cart-item {
   width: 250px; 
-  background: #d3d9e4;
+  background: #98b2e4;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -376,7 +376,7 @@ nav.active {
 
  /* kontak dan hak cipta */
 footer {
-  background-color: #124b70;
+  background-color: #0077cc;
   color: white;
   text-align: center;
   padding: 1rem;
