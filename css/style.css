@@ -34,10 +34,6 @@ nav a:hover {
   color: #000;
 }
 
-/* Saat link aktif diklik */
-nav.active {
-  display: flex;
-}
  /* untuk link keranjang */
 .cart-link {
   position: relative;
